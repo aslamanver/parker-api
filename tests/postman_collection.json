@@ -13,15 +13,21 @@
 					"script": {
 						"exec": [
 							"let response = {}",
-							"try { ",
-							"    response = pm.response.json() ",
+							"try {",
+							"    response = pm.response.json()",
 							"    pm.collectionVariables.set(\"ID\", response.id);",
-							"} catch(e) {",
+							"} catch (e) {",
 							"    console.error(e)",
 							"}",
 							"",
 							"console.log(\"JSON response:\")",
-							"console.log(response)"
+							"console.log(response)",
+							"",
+							"pm.test(`Response should have id`, function () {",
+							"    pm.expect(response).to.have.property('id');",
+							"});",
+							"",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -78,6 +84,19 @@
 		},
 		{
 			"name": "2. Get Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(`Response should have name`, function () {",
+							"    pm.expect(pm.response.json()).to.have.property('name');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -90,7 +109,8 @@
 						{
 							"key": "profile_picture",
 							"type": "file",
-							"src": "/home/aslam/Pictures/Screenshot.png"
+							"src": "/home/aslam/Pictures/Screenshot.png",
+							"disabled": true
 						}
 					],
 					"options": {
@@ -100,7 +120,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{SERVER}}/employees/{{ID}}?profile_picture",
+					"raw": "{{SERVER}}/employees/{{ID}}",
 					"host": [
 						"{{SERVER}}"
 					],
@@ -111,7 +131,8 @@
 					"query": [
 						{
 							"key": "profile_picture",
-							"value": null
+							"value": null,
+							"disabled": true
 						}
 					]
 				}
@@ -120,6 +141,19 @@
 		},
 		{
 			"name": "3. Update Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(`Response should have name`, function () {",
+							"    pm.expect(pm.response.json()).to.have.property('name');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -148,7 +182,8 @@
 							"key": "profile_picture",
 							"description": "Optional",
 							"type": "file",
-							"src": "/home/aslam/Pictures/Screenshot from 2022-10-28 12-23-31.png"
+							"src": "/home/aslam/Pictures/Screenshot from 2022-10-28 12-23-31.png",
+							"disabled": true
 						}
 					],
 					"options": {
@@ -179,6 +214,17 @@
 		},
 		{
 			"name": "4. All Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
