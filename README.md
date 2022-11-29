@@ -11,9 +11,9 @@ The `Node.js` and `MongoDB` containers are running inside Docker microservices
 3. Now the system will be up on 3000 port and MongoDB database on 27017
 4. Postman collection can be imported from `tests/postman_collections.json`
 
-[![](/demo.gif)](https://aslamanver.github.io/demo)
+[![](/demo/demo.gif)](https://aslamanver.github.io/parker-api)
 
-[Demonstration Video Link](/demo/demo.mp4)
+[Demonstration Link](/demo/demo.mp4)
 
 ## TODO
 
