@@ -21,4 +21,5 @@ The `Node.js` and `MongoDB` containers are running inside Docker microservices
 2. Auth keys encryptions using crypto
 3. Setup env variables
 4. Writing controllers and unit test cases
+5. CI Integration
 
