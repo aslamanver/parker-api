@@ -13,7 +13,7 @@ The `Node.js` and `MongoDB` containers are running inside Docker microservices
 
 [![](/demo.gif)](https://aslamanver.github.io/demo)
 
-[Demonstration Link](/demo/demo.mp4)
+[Demonstration Video Link](/demo/demo.mp4)
 
 ## TODO
 
