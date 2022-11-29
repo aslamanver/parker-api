@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+
+  mongo:
+    build: ./docker/mongo
+    container_name: mongo-container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: "#some#2022#db#pw#123"
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "27017:27017"
+    logging:
+      driver: none
+      
+  webapp:
+    build: ./docker/node
+    working_dir: /usr/src/app
+    container_name: node-container
+    volumes:
+      - .:/usr/src/app
+    command: /usr/src/app/entrypoint.sh
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+
+# use mydb
+# db.createUser({ user: "user", pwd: "password", roles: [ { role: "readWrite", db: "mydb" } ], passwordDigestor : "server" })
+# mongodb://root:#some#2022#db#pw#123@127.0.0.1:27017/admin?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
